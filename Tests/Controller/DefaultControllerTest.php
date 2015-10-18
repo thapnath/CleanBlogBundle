@@ -1,6 +1,6 @@
 <?php
 
-namespace Thapnath\BuiltWitheZPublishBundle\Tests\Controller;
+namespace Thapnath\CleanBlogBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
