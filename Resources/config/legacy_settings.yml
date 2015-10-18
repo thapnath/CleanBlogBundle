@@ -1,0 +1,5 @@
+system:
+    default:
+        templating:
+            view_layout: "ThapnathCleanBlogBundle::pagelayout.html.twig"
+            #module_layout: "ThapnathBuiltWitheZPublishBundle::pagelayout_legacy.html.twig"

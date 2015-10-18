@@ -1,0 +1,24 @@
+system:
+ezdemo_site_group:
+        location_view:
+            full:
+                # There are two ways to add extra information to your response using a custom controller
+                blog:
+                    # Fully customized, handling everything yourself
+                    controller: "ThapnathCleanBlogBundle:Blog:listBlogPosts"
+                    match:
+                        Identifier\ContentType: [blog]
+                blog_post:
+                    # Enriched controller, only adding extra parameters
+                    controller: "ThapnathCleanBlogBundle:Blog:showBlogPost"
+                    # Overriding the template used by the default viewLocation
+                    template: "ThapnathCleanBlogBundle:full:blog_post.html.twig"
+                    match:
+                        Identifier\ContentType: [blog_post]
+
+            line:
+                blog_post:
+                    controller: "ThapnathCleanBlogBundle:Blog:showBlogPost"
+                    template: "ThapnathCleanBlogBundle:line:blog_post.html.twig"
+                    match:
+                        Identifier\ContentType: [blog_post]

@@ -1,0 +1,12 @@
+parameters:
+    thapnath_clean_blog.content_helper.class: Thapnath\CleanBlogBundle\Helper\ContentHelper
+    thapnath_clean_blog.criteria_helper.class: Thapnath\CleanBlogBundle\Helper\CriteriaHelper
+    #ezpublish_legacy.default_layout: "ThapnathBuiltWitheZPublishBundle::pagelayout_legacy.html.twig"
+
+services:
+    thapnath_clean_blog.content_helper:
+        class: %thapnath_clean_blog.content_helper.class%
+        arguments: [@ezpublish.api.repository]
+
+    thapnath_clean_blog.criteria_helper:
+        class: %thapnath_clean_blog.criteria_helper.class%

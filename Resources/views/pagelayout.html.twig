@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% if content.contentInfo is defined %}
+    {% set title %}
+        {{ content.contentInfo.name }}
+    {% endset %}
+
+    {% set pdate %}
+        {{ content.contentInfo.publishedDate|localizeddate( 'short', 'short', app.request.locale ) }}
+    {% endset %}
+
+    {% if content.getField('image') and not ez_is_field_empty( content, 'image' )  %}
+        {% set image %}
+            {{ ez_image_alias( content.getField( 'image' ), content.versionInfo, 'original' ).uri }}
+        {% endset %}
+    {% else %}
+        {% set image %}
+            {{ asset('bundles/thapnathcleanblog/img/home-bg.jpg') }}
+        {% endset %}
+    {% endif %}
+{% endif %}
+
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">		
+        {% include 'ThapnathCleanBlogBundle::page_head.html.twig' %}
+        {% include 'ThapnathCleanBlogBundle::page_head_style.html.twig' %}           
+    </head>
+
+    <body>
+        {% block header %}
+            {% include 'ThapnathCleanBlogBundle::page_header.html.twig' %}
+        {% endblock %}
+
+        {% if app.request.attributes.get( 'locationId' ) == 2 %}
+            {{ render_esi( controller( 'ThapnathCleanBlogBundle:Frontpage:mainBlock' ) ) }}
+        {% else %}
+        {% block content %}{% endblock %}
+    {% endif %}
+
+    {% block footer %}
+        {% include 'ThapnathCleanBlogBundle::page_footer.html.twig' %}
+    {% endblock %}
+
+    {% include 'ThapnathCleanBlogBundle::page_head_script.html.twig' %}  
+</body>
+</html>

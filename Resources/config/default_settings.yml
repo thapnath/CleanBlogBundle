@@ -1,0 +1,38 @@
+parameters:
+    ## Footer
+    # Limit for latest content in footer.
+    thapnath_clean_blog.footer.latest_content.limit: 7
+    # LocationId for footer content object.
+    thapnath_clean_blog.footer.content_id: 58
+    # ContentType identifiers we want to have in "latest content" part of the footer.
+    thapnath_clean_blog.footer.latest_content.content_types: [article]
+    # Number of blog_posts displayed per page in the blog view
+    thapnath_clean_blog.blog.blog_post_list.limit: 10
+    # Number of blog_posts displayed per page in the blog view
+    thapnath_clean_blog.website.website_post_list.limit: 10
+    # Decide whether to show or hide article summary in the full view
+    thapnath_clean_blog.article.full_view.show_summary: true
+    # Decide whether to show or hide article image in the full view
+    thapnath_clean_blog.article.full_view.show_image: true
+    # Minimum distance in km for the places lookup
+    thapnath_clean_blog.places.place_list.min: 0
+    # Maximum distance in km for the places lookup
+    thapnath_clean_blog.places.place_list.max: 20000
+
+    # List of content types to be displayed in the place list
+    thapnath_clean_blog.places.place_list.content_types:
+        - place
+
+    ## Cache settings
+    thapnath_clean_blog.cache.feed_reader_ttl: 3600
+
+    ## Feedback Form
+    # Reminder: You can override these settings in config_dev.yml or config_prod.yml for debug or prod
+    # Email address to send contact form emails to
+    thapnath_clean_blog.feedback_form.email_to: root@localhost
+    # Email address displayed as sent
+    thapnath_clean_blog.feedback_form.email_from: noreply@ezdemobundle.test
+
+    ## Search Page
+    # Number of results displayed per page in the simple search
+    thapnath_clean_blog.search.list.limit: 10

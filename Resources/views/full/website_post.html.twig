@@ -1,0 +1,135 @@
+{% extends noLayout ? viewbaseLayout : "ThapnathBuiltWitheZPublishBundle::pagelayout.html.twig" %}
+
+{#
+    This is an example of how to customize the title of your page.
+    You can remove this block if you ever copy this file or use it as is to display a blog_post
+#}
+{% block page_head %}
+    {% set title = ez_content_name( content ) ~ " - " ~ content.contentInfo.publishedDate|localizeddate( 'short', 'short', app.request.locale ) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <!-- banner -->
+    <div class="inside-banner">
+        <div class="container">
+            <span class="pull-right"><a href="#">Home</a> / Websites / {{ ez_render_field( content, "title" ) }}</span>
+            <h2>{{ ez_render_field( content, "title" ) }}</h2>
+        </div>
+    </div>
+    <!-- banner -->
+
+
+    <div class="container">
+        <div class="properties-listing spacer">
+
+            <div class="row">
+                <div class="col-lg-3 col-sm-4 hidden-xs">
+
+                    <div class="hot-properties hidden-xs">
+                        <h4>Hot Properties</h4>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-5"><img src="images/properties/4.jpg" class="img-responsive img-circle" alt="properties"/></div>
+                            <div class="col-lg-8 col-sm-7">
+                                <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                <p class="price">$300,000</p> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-5"><img src="images/properties/1.jpg" class="img-responsive img-circle" alt="properties"/></div>
+                            <div class="col-lg-8 col-sm-7">
+                                <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                <p class="price">$300,000</p> </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-5"><img src="images/properties/3.jpg" class="img-responsive img-circle" alt="properties"/></div>
+                            <div class="col-lg-8 col-sm-7">
+                                <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                <p class="price">$300,000</p> </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-5"><img src="images/properties/2.jpg" class="img-responsive img-circle" alt="properties"/></div>
+                            <div class="col-lg-8 col-sm-7">
+                                <h5><a href="property-detail.php">Integer sed porta quam</a></h5>
+                                <p class="price">$300,000</p> </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="advertisement">
+                        <h4>Advertisements</h4>
+                        <img src="images/advertisements.jpg" class="img-responsive" alt="advertisement">
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-9 col-sm-8 ">
+
+                    <h2>{{ ez_render_field( content, "title" ) }}</h2>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="property-images">
+                                <!-- Slider Starts -->
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators hidden-xs">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <!-- Item 1 -->
+                                        <div class="item active">
+                                            <img src="{{ content.getField( 'cover_image' ).value.uri }}" class="properties" alt="properties" />
+                                        </div>
+                                        <!-- #Item 1 -->
+                                    </div>
+                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                </div>
+                                <!-- #Slider Ends -->
+
+                            </div>
+
+                            <div class="spacer"><h4><span class="glyphicon glyphicon-th-list"></span> Website Detail</h4>
+                                        {{ ez_render_field( content, 'description' ) }}
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="col-lg-12  col-sm-6">
+                                <div class="property-info">
+                                    <p class="price">{{ ez_render_field( content, 'domain_name' ) }}</p>
+
+                                    <div class="profile">
+                                        <span class="glyphicon glyphicon-user"></span> Category
+                                        <p>{{ ez_render_field( content, 'category' ) }}</p>
+                                    </div>
+                                </div>
+
+                                <h6><span class="glyphicon glyphicon-home"></span> Availabilty</h6>
+                                <div class="listing-detail">
+                                    <span data-toggle="tooltip" data-placement="bottom" data-original-title="Bed Room">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living Room">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Parking">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Kitchen">1</span> </div>
+
+                            </div>
+                            <div class="col-lg-12 col-sm-6 ">
+                                <div class="enquiry">
+                                    <h6><span class="glyphicon glyphicon-envelope"></span> Post Enquiry</h6>
+                                    <form role="form">
+                                        <input type="text" class="form-control" placeholder="Full Name"/>
+                                        <input type="text" class="form-control" placeholder="you@yourdomain.com"/>
+                                        <input type="text" class="form-control" placeholder="your number"/>
+                                        <textarea rows="6" class="form-control" placeholder="Whats on your mind?"></textarea>
+                                        <button type="submit" class="btn btn-primary" name="Submit">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

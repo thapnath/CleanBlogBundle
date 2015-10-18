@@ -1,0 +1,23 @@
+{% extends noLayout ? viewbaseLayout : "ThapnathCleanBlogBundle::pagelayout.html.twig" %}
+
+{#
+    This is an example of how to customize the title of your page.
+    You can remove this block if you ever copy this file or use it as is to display a blog_post
+#}
+{% block page_head %}
+    {% set title = ez_content_name( content ) ~ " - " ~ content.contentInfo.publishedDate|localizeddate( 'short', 'short', app.request.locale ) %}    
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {{ ez_render_field( content, 'body' ) }}
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

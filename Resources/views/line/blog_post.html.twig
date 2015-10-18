@@ -1,0 +1,14 @@
+{% block content %}
+    <div class="post-preview">
+        <a href={{ path( location ) }} title="{{ ez_field_value( content, 'title' ) }}">
+            <h2 class="post-title">
+                {{ ez_render_field( content, 'title' ) }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ ez_render_field( content, 'short_desc' ) }}
+            </h3>
+        </a>
+        <p class="post-meta">Posted by {{ author.contentInfo.name }} {{ ez_field_value( content, 'publication_date' )|localizeddate( 'short', 'short', app.request.locale ) }}</p>
+    </div>
+    <hr>
+{% endblock %}
